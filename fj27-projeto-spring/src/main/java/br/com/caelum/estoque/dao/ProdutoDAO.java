@@ -2,7 +2,7 @@ package br.com.caelum.estoque.dao;
 
 import java.util.List;
 
-import br.com.caelum.estoque.Produto;
+import br.com.caelum.estoque.model.Produto;
 
 public interface ProdutoDAO {
 
