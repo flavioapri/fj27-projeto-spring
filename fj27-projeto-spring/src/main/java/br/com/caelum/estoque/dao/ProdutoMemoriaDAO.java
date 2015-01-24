@@ -3,11 +3,13 @@ package br.com.caelum.estoque.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.caelum.estoque.model.Produto;
 
-@Component
+@Repository
+@Transactional
 public class ProdutoMemoriaDAO implements ProdutoDAO {
 
 	private List<Produto> produtos = new ArrayList<Produto>();
@@ -25,5 +27,17 @@ public class ProdutoMemoriaDAO implements ProdutoDAO {
 
 	public Produto buscarPorId(Long id) {
 		return null;
+	}
+
+	public void remover(Long id) {
+	}
+
+	public Integer estoqueAtual(Produto produto) {
+		for (Produto p : produtos) {
+			if (p.getId().equals(produto.getId())) {
+				return p.getQuantidade();
+			}
+		}
+		throw new IllegalArgumentException("Produto não encontrado");
 	}
 }

@@ -8,6 +8,8 @@ public interface ProdutoDAO {
 
 	void salvar(Produto produto);
 	void alterar(Produto produto);
+	void remover(Long id);
 	List<Produto> listar();
 	Produto buscarPorId(Long id);
+	Integer estoqueAtual(Produto produto);
 }
